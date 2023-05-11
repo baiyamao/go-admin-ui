@@ -1,10 +1,12 @@
 FROM node:14.17.0-alpine3.13 as build-stage
 WORKDIR /app
+COPY package*.json ./
+RUN npm install
 COPY . .
-RUN npm install && npm run build:prod
+RUN npm run build:prod
 
 # production stage
-FROM nginx:1.21.0-alpine
+FROM registry.cn-shanghai.aliyuncs.com/lwmeng/nginx
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 EXPOSE 80
