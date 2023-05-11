@@ -1,8 +1,9 @@
 FROM nikolaik/python-nodejs:latest as build-stage
 WORKDIR /app
-COPY . .
-RUN npm install
-RUN npm run build:prod
+COPY . /app
+RUN cd /app && \
+    npm install && \
+    npm run build:prod
 
 # production stage
 FROM nginx:1.21.0-alpine
