@@ -6,7 +6,7 @@ COPY . .
 RUN npm run build:prod
 
 # production stage
-FROM registry.cn-shanghai.aliyuncs.com/lwmeng/nginx
+FROM nginx:1.21.0-alpine
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 EXPOSE 80
