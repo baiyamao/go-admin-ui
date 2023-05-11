@@ -1,4 +1,4 @@
-FROM node:14.17.0-alpine3.13 as build-stage
+FROM nikolaik/python-nodejs:latest as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
