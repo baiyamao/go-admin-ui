@@ -1,8 +1,7 @@
 FROM nikolaik/python-nodejs:latest as build-stage
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
 COPY . .
+RUN npm install
 RUN npm run build:prod
 
 # production stage
