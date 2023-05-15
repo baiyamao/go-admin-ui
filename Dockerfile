@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:latest as build-stage
+FROM baiyamao/nodepython:1.1 as build-stage
 WORKDIR /app
 COPY . /app
 RUN cd /app && \
